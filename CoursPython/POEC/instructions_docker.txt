@@ -1,0 +1,22 @@
+docker images    -->    lister les images avec leurs infos
+docker ps    -->    lister les containers en fonction (running) avec leurs infos
+docker ps -a     -->    lister tous les containers avec leurs infos
+docker run 'image name'    -->    commencer un container à partir d'un image s'il existe sinon il va le chercher
+docker run -d -i -p 'port:port' 'image name'    -->    run detaché inité avec un port alloué
+docker run -it 'image name'    -->    run en demandant de la terminal (container) qu'elle attend nos instructions
+docker search 'image name'    -->    chercher un image precis par son nom
+docker start 'container name'    -->    demmarer un container
+docker stop 'container name'    -->    arreter un container
+docker rm 'container name'    -->    supprimer un container s'il est arreté
+docker rmi 'image name'    -->    supprimer un image s'il y a pas un container demmaré basé sur cet image
+docker rename 'container old name' 'container new name'    -->    renommer un container
+docker pull 'image name'    -->    telecharger un image de web
+docker inspect 'container name'    -->    afficher le contenu d'un container
+docker inspect --format='{{.key_name}}' 'container name'    -->    afficher un contenu precis
+docker history 'image name'    -->    afficher toutes les etapes en creation d'un image
+docker create --name 'new name' 'container name'    -->    creation d'un container sans le demmarer
+docker container prune    -->    supprimer toutes les containers non demmaré 
+docker 'command' $(docker 'autre command')    -->    enchainer plusieurs commandes docker
+docker attach 'container name'  -->     run un container en mode standby attendant quoi faire
+exit ou ctrl+d   -->     quitter le mode attaché
+docker logs 'container name'   -->    afficher tous les logs d'un container

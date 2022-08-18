@@ -1,0 +1,27 @@
+VOLUMES
+#######
+docker volume create 'choisir nom de volume'    -->     creation d'un volume et le donner un nom
+docker volume ls ou docker volume list          -->     afficher la liste des volumes
+docker volume inspect 'volume name'             -->     inspecter le contenu d'un volume existant
+docker volume rm 'volume name'                  -->     supprimer un volume
+docker run -v 'volume':/'dossier' 'image'       -->     creer un volume avec la creation d'un container
+
+NETWORKS
+########
+docker network ls                                       -->     lister tous les networks 
+docker network create --driver 'type' 'name network'    -->     creation nouveau network
+Ex: docker network create --driver bridge infralinux
+docker network inspect 'nom de reseau en question'      -->     afficher les infos contenu d'un reseau
+Ex: docker network inspect infralinux
+docker network connect 'nom reseau' 'connecteur'        -->     connecter à un reseau
+docker network deconnect 'nom reseau' 'connecteur'      -->     deconnecter à un reseau
+docker network rm 'nom reseau'                          -->     supprimer un reseau (deconnecter avant)
+docker network prune                                    -->     supprimer tous les reseaux non utilisés
+docker run ...... --network 'nom reseau' 'image'        -->     attribuer un network precis à un container lors sa creation
+Ex: docker run -dit --name ubu5 --network infralinux ubuntu
+docker exec 'container' "command"                       -->     executer un commande en container
+Ex: docker exec ubu5 sh -c "apt update && apt upgrade -y && apt install net-tools -y && apt install iputils-ping -y"
+Ex: docker exec ubu5 ping -c 4 172.19.0.2 (ping cet IP de 4 paquets)
+
+docker commit 'container' 'repositoire:Tag'             -->     commit docker fichier pour creer nouvelle image 
+docker build 
